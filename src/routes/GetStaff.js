@@ -14,89 +14,64 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FileUpload from "../components/FileUpload";
 import { useState } from "react";
-import { storage } from "../firebase";
+import { storage, db } from "../firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Header from "../components/Header";
-
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
+import { addDoc, collection } from "firebase/firestore/lite";
+import {
+  FormControl,
+  InputLabel,
+  ListItemText,
+  MenuItem,
+  OutlinedInput,
+  Select,
+} from "@mui/material";
 
 const theme = createTheme();
+const names = [
+  "Waiter/Waitress",
+  "Kitchen Assistant/Porters",
+  "Room Service",
+  "House Keeping/Attendance",
+  "Bar tender/Barbacks",
+  "Security",
+];
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 400,
+    },
+  },
+};
 
-export default function SignInSide() {
-  const [file, setFile] = useState("");
-  const [percent, setPercent] = useState(0);
+export default function GetStaff() {
+  const [personName, setPersonName] = React.useState([]);
 
-  async function handleChange(event) {
-    setFile(event.target.files[0]);
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-
-    // File Uploading Code
-
-    if (!file) {
-      alert("Please upload an image first!");
-    }
-
-    const storageRef = ref(storage, `/files/${file.name}`);
-
-    // progress can be paused and resumed. It also exposes progress updates.
-    // Receives the storage reference and the file to upload.
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-
-        // update progress
-        setPercent(percent);
-      },
-      (err) => console.log(err),
-      () => {
-        // download url
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log(url);
-        });
-      }
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
     );
   };
 
-  // const handleFile = (e) =>{
-  //     const file = e.target[0]?.files[0]
-  //     try {
-  //     const storageRef = ref(storage, `files/${file.name}`);
-  //     uploadBytesResumable(storageRef, file).then(alert('upload succsessful'));
-  //     } catch (error) {
-  //         alert(error)
-  //         if (!file) {alert('no file uploaded') };
-  //     }
-
-  //   };
+  let collectionRef = collection(db, "companydetails");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log("data retreival", data.get("email"), data.get("role"));
+    addDoc(collectionRef, {
+      jobtype: personName,
+      email: data.get("email"),
+    }).then(() => {
+      alert("successful");
+    });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -106,8 +81,8 @@ export default function SignInSide() {
         <Grid
           item
           xs={false}
-          sm={4}
-          md={7}
+          sm={3}
+          md={6}
           sx={{
             backgroundImage: `linear-gradient(356deg, rgba(77,8,61,1) 0%, rgba(0,0,0,0.4433123591233369) 100%),url(https://source.unsplash.com/random)`,
             backgroundRepeat: "no-repeat",
@@ -119,7 +94,7 @@ export default function SignInSide() {
             backgroundPosition: "center",
           }}
         ></Grid>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -135,12 +110,39 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Submit your details
             </Typography>
+
             <Box
               component="form"
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+              <Grid item xs={12}>
+                <FormControl fullWidth required>
+                  <InputLabel id="demo-multiple-checkbox-label">
+                    Required services
+                  </InputLabel>
+                  <Select
+                    labelId="demo-multiple-checkbox-label"
+                    id="demo-multiple-checkbox"
+                    multiple
+                    name="role"
+                    value={personName}
+                    onChange={handleChange}
+                    input={<OutlinedInput label="Required services" />}
+                    renderValue={(selected) => selected.join(", ")}
+                    MenuProps={MenuProps}
+                  >
+                    {names.map((name) => (
+                      <MenuItem key={name} value={name}>
+                        <Checkbox checked={personName.indexOf(name) > -1} />
+                        <ListItemText primary={name} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+
               <TextField
                 margin="normal"
                 required
@@ -185,19 +187,10 @@ export default function SignInSide() {
               <input type='file' required />
               </Grid> */}
 
-              <Grid requried xs={12}>
-                <input
-                  requried
-                  type="file"
-                  onChange={handleChange}
-                  accept="/file/*"
-                />
-              </Grid>
-
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
 
               <Button
                 type="submit"
