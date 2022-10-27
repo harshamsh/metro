@@ -16,5 +16,3 @@ function Staff() {
         </div>
     );
 }
-
-export default Staff
