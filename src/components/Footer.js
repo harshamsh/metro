@@ -15,20 +15,21 @@ const Footer = () => {
       >
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
           <CDBBox>
-            <a href="/" className="d-flex align-items-center p-0 text-dark">
+            <a
+              href="/"
+              className="d-flex align-items-center p-0 text-dark"
+              // style={{ marginLeft: "auto", marginRight: "auto" }}
+            >
               <img alt="logo" src={MyLogo} width="90px" />
               {/* <span className="ml-3 h5 font-weight-bold">Devwares</span> */}
             </a>
-            {/* <p className="my-3" style={{ width: "250px" }}>
-              We are creating High Quality Resources and tools to Aid developers
-              during the developement of their projects
-            </p> */}
+
             <CDBBox display="flex" className="mt-4">
               <CDBBtn flat color="dark">
                 <CDBIcon fab icon="facebook-f" />
               </CDBBtn>
               <CDBBtn flat color="dark" className="mx-3">
-                <CDBIcon fab icon="twitter" />
+                <CDBIcon fab icon="linkedin" />
               </CDBBtn>
               <CDBBtn flat color="dark" className="p-2">
                 <CDBIcon fab icon="instagram" />
@@ -37,42 +38,52 @@ const Footer = () => {
           </CDBBox>
           <CDBBox>
             <p className="h5 mb-4" style={{ fontWeight: "600" }}>
-              Devwares
+              Services
             </p>
             <CDBBox flex="column" style={{ cursor: "pointer", padding: "0" }}>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Resources
-              </CDBFooterLink>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                About Us
-              </CDBFooterLink>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Contact
-              </CDBFooterLink>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Blog
-              </CDBFooterLink>
+              <div style={{ color: "white" }}>Waiters</div>
+              <div style={{ color: "white" }}>Bartenders</div>
+              <div style={{ color: "white" }}>Kitchen Porters</div>
+              <div style={{ color: "white" }}>House keeping</div>
+              <div style={{ color: "white" }}>Receptionists</div>
+              <div style={{ color: "white" }}>Room Service</div>
             </CDBBox>
           </CDBBox>
           <CDBBox>
             <p className="h5 mb-4" style={{ fontWeight: "600" }}>
-              Help
+              Contact
             </p>
             <CDBBox flex="column" style={{ cursor: "pointer", padding: "0" }}>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Support
-              </CDBFooterLink>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Sign Up
-              </CDBFooterLink>
-              <CDBFooterLink href="/" style={{ color: "white" }}>
-                Sign In
-              </CDBFooterLink>
+              <div
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+
+                  cursor: "pointer ",
+                }}
+              >
+                <a
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    cursor: "pointer ",
+                  }}
+                  href="tel:02071400161"
+                >
+                  +44 2071400161
+                </a>
+              </div>
+              <div style={{ color: "white" }}>hr@salus.co.uk</div>
+              <div style={{ color: "white", marginTop: 10 }}>Address:</div>
+              <div style={{ color: "white" }}></div>
+              <div style={{ color: "white" }}>113, Cranbrook Road, IG1 4PU</div>
+
+              <div style={{ color: "white" }}>Freguensen house</div>
             </CDBBox>
           </CDBBox>
           <CDBBox>
             <p className="h5 mb-4" style={{ fontWeight: "600" }}>
-              Products
+              Location
             </p>
             <LocationMap />
           </CDBBox>

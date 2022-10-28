@@ -9,7 +9,7 @@ function CardFlip(props) {
         <div
           className="front"
           style={{
-            backgroundImage: `linear-gradient(356deg, rgba(77,8,61,1) 0%, rgba(0,0,0,0.4433123591233369) 100%),url(${SecurityImg})`,
+            backgroundImage: `linear-gradient(356deg, rgba(77,8,61,1) 0%, rgba(0,0,0,0.4433123591233369) 100%),url(${props.image})`,
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
@@ -22,7 +22,12 @@ function CardFlip(props) {
         >
           {props.serviceName}
         </div>
-        <div className="back">{props.discription}</div>
+        <div className="back">
+          <div>
+            <h4>{props.serviceName}</h4>
+          </div>
+          <div>{props.discription}</div>
+        </div>
       </CardBox>
     </ContainerCard>
   );

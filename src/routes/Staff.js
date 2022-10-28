@@ -14,9 +14,11 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FileUpload from "../components/FileUpload";
 import { useState } from "react";
-import { storage } from "../firebase";
+import { db, storage } from "../firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Header from "../components/Header";
+import { addDoc, collection } from "firebase/firestore/lite";
+import HeaderOut from "../components/HeaderOut";
 
 // function Copyright(props) {
 //   return (
@@ -45,7 +47,7 @@ export default function SignInSide() {
   async function handleChange(event) {
     setFile(event.target.files[0]);
   }
-
+  let collectionRef = collection(db, "candidateDetails");
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -53,11 +55,19 @@ export default function SignInSide() {
       email: data.get("email"),
       password: data.get("password"),
     });
+    addDoc(collectionRef, {
+      cvName: file.name,
+      candidateName: data.get("candidateName"),
+      candidateEmail: data.get("email"),
+      mobileNumber: data.get("number"),
+    }).then(() => {
+      alert("successful");
+    });
 
     // File Uploading Code
 
     if (!file) {
-      alert("Please upload an image first!");
+      alert("Please upload your CV");
     }
 
     const storageRef = ref(storage, `/files/${file.name}`);
@@ -100,13 +110,13 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <HeaderOut />
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           item
           xs={false}
-          sm={4}
+          sm={false}
           md={7}
           sx={{
             backgroundImage: `linear-gradient(356deg, rgba(77,8,61,1) 0%, rgba(0,0,0,0.4433123591233369) 100%),url(https://source.unsplash.com/random)`,
@@ -118,8 +128,50 @@ export default function SignInSide() {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        ></Grid>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        >
+          <Grid sx={{ padding: 6 }}>
+            <Grid
+              sx={{
+                fontSize: "80px",
+                // textAlign: "center",
+                color: "white",
+                marginTop: 10,
+                fontFamily: " 'Anton', sans-serif",
+              }}
+            >
+              Be a Part of Our Amazing Team
+            </Grid>
+            <Grid
+              style={{
+                display: "flex",
+                // justifyContent: "center",
+                // alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "30px",
+                  // textAlign: "center",
+                  color: "white",
+                  fontFamily: " 'Anton', sans-serif",
+                }}
+              >
+                Work with our diverse range of clients and make way for your
+                career
+              </p>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={5}
+          component={Paper}
+          elevation={6}
+          square
+        >
           <Box
             sx={{
               my: 8,
@@ -129,18 +181,28 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             <Typography component="h1" variant="h5">
-              Submit your details
+              We're glad you want to join us
             </Typography>
             <Box
               component="form"
-              noValidate
+              // noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="candidateName"
+                label="Your Full Name"
+                name="candidateName"
+                autoComplete="full name"
+                autoFocus
+              />
               <TextField
                 margin="normal"
                 required
@@ -149,16 +211,6 @@ export default function SignInSide() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Your Full Name"
-                name="name"
-                autoComplete="full name"
                 autoFocus
               />
               {/* <TextField
@@ -184,28 +236,37 @@ export default function SignInSide() {
 
               <input type='file' required />
               </Grid> */}
-
-              <Grid requried xs={12}>
-                <input
-                  requried
-                  type="file"
-                  onChange={handleChange}
-                  accept="/file/*"
-                />
+              <Grid
+                requried
+                sx={{
+                  marginTop: "10",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography>Upload Your latest CV</Typography>
+                <Grid requried xs={12} sx={{ margin: "auto" }}>
+                  <input
+                    requried
+                    type="file"
+                    onChange={handleChange}
+                    accept="/file/*"
+                  />
+                </Grid>
               </Grid>
 
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
 
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, bgcolor: "#490841" }}
               >
-                Sign In
+                Submit
               </Button>
               {/* <Grid container>
                 <Grid item xs>

@@ -21,20 +21,31 @@ export const CardBox = styled.div`
   .back {
     transform: rotateY(180deg);
     background: white;
-    color: red;
+    color: #490841;
   }
   .front {
     color: white;
   }
 
-  .front,
-  .back {
+  .front{
     position: absolute;
     width: 100%;
     height: 200px;
     border-radius: 10px;
     backface-visibility: hidden;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 5px gray;
+  }
+  }
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    backface-visibility: hidden;
+  
     align-items: center;
     justify-content: center;
     box-shadow: 0px 2px 5px gray;

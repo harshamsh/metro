@@ -34,23 +34,25 @@ function SidebySide(props) {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
+          height: "100vh",
         }}
       >
-        <div style={{ marginTop: "60px" }}>
+        <div style={{ paddingTop: 30 }}>
           <h1>{props.heading}</h1>
         </div>
-        <div style={{}}>{props.content}</div>
+        <div>{props.content}</div>
         <Button
+          variant="outlined"
           component={Link}
-          to="/services"
+          to="/staff"
           style={{
-            margin: 60,
+            margin: 10,
 
-            color: "#540B0D",
-            backgroundColor: "white",
+            borderColor: "white",
+            color: "white",
           }}
         >
-          Know more
+          Get Hired
         </Button>
       </Box>
     </Grid>

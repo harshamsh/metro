@@ -26,6 +26,8 @@ import {
   OutlinedInput,
   Select,
 } from "@mui/material";
+import Footer from "../components/Footer";
+import HeaderOut from "../components/HeaderOut";
 
 const theme = createTheme();
 const names = [
@@ -68,6 +70,10 @@ export default function GetStaff() {
     addDoc(collectionRef, {
       jobtype: personName,
       email: data.get("email"),
+      companyName: data.get("companyName"),
+      employeeName: data.get("employeeName"),
+      mobileNumber: data.get("number"),
+      companyMessage: data.get("message"),
     }).then(() => {
       alert("successful");
     });
@@ -75,14 +81,14 @@ export default function GetStaff() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <HeaderOut />
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           item
           xs={false}
-          sm={3}
-          md={6}
+          sm={false}
+          md={7}
           sx={{
             backgroundImage: `linear-gradient(356deg, rgba(77,8,61,1) 0%, rgba(0,0,0,0.4433123591233369) 100%),url(https://source.unsplash.com/random)`,
             backgroundRepeat: "no-repeat",
@@ -93,8 +99,49 @@ export default function GetStaff() {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        ></Grid>
-        <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
+        >
+          <Grid sx={{ padding: 6 }}>
+            <Grid
+              sx={{
+                fontSize: "80px",
+                color: "white",
+                marginTop: 10,
+                fontFamily: " 'Anton', sans-serif",
+              }}
+            >
+              Be a Part of Our Amazing Team
+            </Grid>
+            <Grid
+              style={{
+                display: "flex",
+                // justifyContent: "center",
+                // alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "30px",
+                  // textAlign: "center",
+                  color: "white",
+                  fontFamily: " 'Anton', sans-serif",
+                }}
+              >
+                Work with our diverse range of clients and make way for your
+                career
+              </p>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={5}
+          component={Paper}
+          elevation={6}
+          square
+        >
           <Box
             sx={{
               my: 8,
@@ -104,19 +151,17 @@ export default function GetStaff() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             <Typography component="h1" variant="h5">
-              Submit your details
+              Let us how we can assist you
             </Typography>
+            {/* <Typography fontSize={11}>
+              we will get back to you at the earliest
+            </Typography> */}
 
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
-            >
+            <Box component="form" W onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <Grid item xs={12}>
                 <FormControl fullWidth required>
                   <InputLabel id="demo-multiple-checkbox-label">
@@ -142,27 +187,38 @@ export default function GetStaff() {
                   </Select>
                 </FormControl>
               </Grid>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="companyName"
+                label="Company Name"
+                name="companyName"
+                autoComplete
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="employeeName"
+                label="Your name"
+                name="employeeName"
+                autoComplete
+                autoFocus
+              />
 
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Company Email Address"
                 name="email"
                 autoComplete="email"
                 autoFocus
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Your Full Name"
-                name="name"
-                autoComplete="full name"
-                autoFocus
-              />
+
               {/* <TextField
                     
                     name="number"
@@ -173,7 +229,6 @@ export default function GetStaff() {
                 /> */}
               <TextField
                 margin="normal"
-                required
                 fullWidth
                 name="number"
                 id="number"
@@ -182,23 +237,21 @@ export default function GetStaff() {
                   inputMode: "numeric",
                 }}
               />
-              {/* <Grid item xs={12} name="file" requried>
-
-              <input type='file' required />
-              </Grid> */}
-
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
+              <TextField
+                margin="normal"
+                fullWidth
+                name="message"
+                id="message"
+                label="Message"
+              />
 
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, bgcolor: "#490841" }}
               >
-                Sign In
+                Submit
               </Button>
               {/* <Grid container>
                 <Grid item xs>

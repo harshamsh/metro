@@ -1,4 +1,4 @@
-import { Button, Card, Grid } from "@mui/material";
+import { Button, Card, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
@@ -75,20 +75,7 @@ function Home() {
                 backgroundColor: "white",
               }}
             >
-              Get Staff
-            </Button>
-            <Button
-              variant="outlined"
-              component={Link}
-              to="/staff"
-              style={{
-                margin: 10,
-
-                borderColor: "white",
-                color: "white",
-              }}
-            >
-              Get Hired
+              Contact Us
             </Button>
           </Box>
         </Box>
@@ -109,14 +96,26 @@ function Home() {
         words, combined with a handful of model sentence structures, to
         generate Lorem Ipsum which looks reasonable. The generated Lorem
         Ipsum is therefore always free from repetition, injected humour, or
+        non-characteristic words etc.
+        All the Lorem Ipsum generators on the Internet tend
+        to repeat predefined chunks as necessary, making this the first true
+        generator on the Internet. It uses a dictionary of over 200 Latin
+        words, combined with a handful of model sentence structures, to
+        generate Lorem Ipsum which looks reasonable. The generated Lorem
+        Ipsum is therefore always free from repetition, injected humour, or
         non-characteristic words etc.`}
       />
-      <div>
+      <Grid id="services" sx={{ paddingTop: 10 }}>
+        <Typography sx={{ textAlign: "center" }}>
+          <h1> Services</h1>
+        </Typography>
         <Services />
-      </div>
+      </Grid>
+      <Grid id="testimonials" sx={{ paddingTop: 10 }}>
+        <Testimonials />
+      </Grid>
 
-      <Testimonials />
-      <Box sx={{ bgcolor: "#490841", color: "white" }}>
+      <Box id="contact" sx={{ bgcolor: "#490841", color: "white" }}>
         <Footer />
       </Box>
     </div>

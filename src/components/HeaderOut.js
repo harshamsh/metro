@@ -24,7 +24,7 @@ const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
-function DrawerAppBar(props) {
+function HeaderOut(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -70,7 +70,7 @@ function DrawerAppBar(props) {
         style={{ color: "#fff2c0", backgroundColor: "#490841" }}
       >
         <Toolbar logo={MyLogo}>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -78,17 +78,8 @@ function DrawerAppBar(props) {
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
-          {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexDirection: 1, display: { xs: 'none', sm: 'block' } }}
-          ><div style={{display:'flex'}}>
-          <div style={{marginLeft:'auto',marginRight:'auto', color:'#fff2c0'}}>
-            <div style={{fontSize:'30px'}}>Salus</div>
-            <div style={{fontSize:'15px'}}>Enterprise Limited</div>
-            </div></div>
-          </Typography> */}
+          </IconButton> */}
+
           <Link to="/">
             <img
               src={MyLogo}
@@ -97,7 +88,7 @@ function DrawerAppBar(props) {
             />
           </Link>
 
-          <Box
+          {/* <Box
             sx={{ display: { xs: "none", sm: "block" }, marginLeft: "auto" }}
           >
             {navItems.map((item) => (
@@ -112,10 +103,10 @@ function DrawerAppBar(props) {
                 {item.name}
               </Button>
             ))}
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      {/* <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -134,18 +125,18 @@ function DrawerAppBar(props) {
         >
           {drawer}
         </Drawer>
-      </Box>
+      </Box> */}
       <Toolbar />
     </Box>
   );
 }
 
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
+// DrawerAppBar.propTypes = {
+//   /**
+//    * Injected by the documentation to work in an iframe.
+//    * You won't need it on your project.
+//    */
+//   window: PropTypes.func,
+// };
 
-export default DrawerAppBar;
+export default HeaderOut;

@@ -4,7 +4,13 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ServicesCard from "./ServicesCard";
-
+import WaiterImg from "../../assets/services/waiterImg.jpg";
+import SecurityImg from "../../assets/services/securityImg.jpg";
+import BartenderImg from "../../assets/services/bartenderImg.jpg";
+import KitchenImg from "../../assets/services/kitchenImg.jpg";
+import RoomServiceImg from "../../assets/services/roomservice.jpg";
+import ReceptionistImg from "../../assets/services/receptionist.jpg";
+import HousekeepingImg from "../../assets/services/housekeeping.jpg";
 import { Typography } from "@mui/material";
 import CardFlip from "../Card/CardFlip";
 
@@ -32,7 +38,8 @@ export default function Services() {
       >
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Waiter"
+            image={WaiterImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
@@ -41,7 +48,8 @@ export default function Services() {
         </Grid>
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Bartender"
+            image={BartenderImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
@@ -50,7 +58,8 @@ export default function Services() {
         </Grid>
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Kichen Assistent / Porters"
+            image={KitchenImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
@@ -59,7 +68,8 @@ export default function Services() {
         </Grid>
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Housekeeping / Room Attendants"
+            image={HousekeepingImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
@@ -68,7 +78,8 @@ export default function Services() {
         </Grid>
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Receptionsit"
+            image={ReceptionistImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
@@ -77,7 +88,8 @@ export default function Services() {
         </Grid>
         <Grid sx={{ width: { xs: "90%", md: "30%" } }}>
           <CardFlip
-            serviceName="Security"
+            serviceName="Room Service"
+            image={RoomServiceImg}
             discription={`If you are going to use a passage of Lorem Ipsum, you need to be
             sure there isn't anything embarrassing hidden in the middle of text.
             All the Lorem Ipsum generators on the Internet tend to repeat
