@@ -1,4 +1,4 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -40,19 +40,42 @@ function SidebySide(props) {
         <div style={{ paddingTop: 30 }}>
           <h1>{props.heading}</h1>
         </div>
-        <div>{props.content}</div>
+        <div style={{ textAlign: "justify" }}>{props.content}</div>
+        <div>
+          <div style={{ marginTop: 20 }}>
+            <h5>Want to Join Salus?</h5>
+          </div>
+          <div>
+            We can discover a job that works for you, whether you want full-time
+            hours or simply a career stopgap. Come to one of our front of house
+            onboarding seminars if you're not sure if the hospitality industry
+            is right for you. We'll help you develop your abilities and get
+            ready for your first shift.
+            <br />
+            With fantastic shift possibilities and personal perks, we think we
+            can provide you more than simply a means to a goal, making your time
+            with Salus the best it can be.
+          </div>
+        </div>
         <Button
           variant="outlined"
           component={Link}
           to="/staff"
           style={{
-            margin: 10,
+            margin: 20,
 
             borderColor: "white",
             color: "white",
           }}
         >
-          Get Hired
+          <Typography
+            sx={{
+              fontSize: 14,
+              ":hover": { fontSize: 17 },
+            }}
+          >
+            Get Hired
+          </Typography>
         </Button>
       </Box>
     </Grid>

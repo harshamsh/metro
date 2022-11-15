@@ -39,31 +39,33 @@ const Testimonials = () => {
       }}
     >
       <div style={{ width: "50%", textAlign: "center" }}>
-        <h1 style={{ marginBottom: 20 }}>Testimonials</h1>
+        <h1
+          style={{
+            marginBottom: 20,
+            fontFamily: "Lexend Deca",
+            color: "#490841",
+          }}
+          className="disable-text-selection"
+        >
+          Testimonials from our Clients
+        </h1>
         <Slider prevArrow={<PreviousBtn />} nextArrow={<NextBtn />}>
           <Card
             img={RaisingSun}
             titleName="The Raising Sun"
-            comment="Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-          Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan
-          tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-          fringilla massa. Etiam hendrerit dolor eget rutrum"
+            comment="With Salus, we have established a long-lasting connection. They have 
+            consistently been able to meet our needs on short notice as well as when they were scheduled.
+             Every team member has always been nice, kind, and helpful in my experience. I have no qualms with recommending their services."
           />
           <Card
             img={RoyalOak}
             titleName="The Royal Oak"
-            comment="Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-        Etiam faucibus mauris id tempor egestargharhas. Duis luctus turpis at accumsan
-        tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-        fringilla massa. Etiam hendrerit dolartharthor eget rutrum"
+            comment="I personally thought Salus, one of the first agencies we utilised, was exceedingly professional in all facets of their hiring practises. When we needed to fill a key management job, this agency delivered excellent results. I was pleased by their effectiveness, communication skills, and market expertise in the hotel industry. I heartily recommend them."
           />
           <Card
             img={HansomClub}
             titleName="The Hansom Club"
-            comment="Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-        Etiam faucibus mauriwrhger5hgestas. Duis luctus turpis at accumsan
-        tincidunt. Phasellus risus risusarthasdddddddddddddddddddddddddddddddddddddddddddddrth, volutpat vel tellus ac, tincidunt
-        fringilla massa. Etiam hendrerit dolor eget rutrum"
+            comment="Our satisfaction with Salus's service is unwavering. They keep the client properly informed and are highly professional. We particularly respect their thorough screening procedure since it guarantees that we will only interview individuals who are completely qualified. They find such people quickly, and they are always of the calibre we want. Excellent client service and communication."
           />
         </Slider>
       </div>
@@ -75,6 +77,7 @@ const Card = (props) => {
   return (
     <div
       style={{
+        overflow: "auto",
         display: "flex",
         alignItems: "center",
         flexDirection: "column",

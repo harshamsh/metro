@@ -5,8 +5,8 @@ function LocationMap() {
     <div>
       <iframe
         src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=113%20cranbrook%20road+(Salus%20Enterprise)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        width="500"
-        height="250"
+        width="300"
+        height="150"
         allowFullScreen
       ></iframe>
     </div>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import { Button } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -132,7 +132,7 @@ export default function SignInSide() {
           <Grid sx={{ padding: 6 }}>
             <Grid
               sx={{
-                fontSize: "80px",
+                fontSize: "70px",
                 // textAlign: "center",
                 color: "white",
                 marginTop: 10,
@@ -151,7 +151,7 @@ export default function SignInSide() {
             >
               <p
                 style={{
-                  fontSize: "30px",
+                  fontSize: "25px",
                   // textAlign: "center",
                   color: "white",
                   fontFamily: " 'Anton', sans-serif",
@@ -201,7 +201,7 @@ export default function SignInSide() {
                 label="Your Full Name"
                 name="candidateName"
                 autoComplete="full name"
-                autoFocus
+                // autoFocus
               />
               <TextField
                 margin="normal"
@@ -211,7 +211,7 @@ export default function SignInSide() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
+                // autoFocus
               />
               {/* <TextField
                     
@@ -239,19 +239,31 @@ export default function SignInSide() {
               <Grid
                 requried
                 sx={{
-                  marginTop: "10",
-                  display: "flex",
-                  justifyContent: "center",
+                  marginTop: 2,
+                  // display: "flex",
+                  // // flexDirection: "row",
+                  // alignitems: "stretch",
                 }}
               >
-                <Typography>Upload Your latest CV</Typography>
-                <Grid requried xs={12} sx={{ margin: "auto" }}>
+                <Typography sx={{ textAlign: "center" }}>
+                  Upload Your latest CV
+                </Typography>
+                <Grid
+                  requried
+                  xs={12}
+                  sx={{ textAlign: "center", marginTop: 2 }}
+                >
                   <input
                     requried
                     type="file"
                     onChange={handleChange}
                     accept="/file/*"
                   />
+
+                  {/* <Button variant="contained" component="label">
+                    Upload File
+                    <input onChange={handleChange} type="file" hidden />
+                  </Button> */}
                 </Grid>
               </Grid>
 
@@ -264,7 +276,8 @@ export default function SignInSide() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, bgcolor: "#490841" }}
+                style={{ backgroundColor: "#490841" }}
+                sx={{ mt: 3, mb: 2 }}
               >
                 Submit
               </Button>

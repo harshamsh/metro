@@ -31,12 +31,12 @@ import HeaderOut from "../components/HeaderOut";
 
 const theme = createTheme();
 const names = [
-  "Waiter/Waitress",
-  "Kitchen Assistant/Porters",
+  "Waiters",
+  "Kitchen Assistant",
   "Room Service",
-  "House Keeping/Attendance",
-  "Bar tender/Barbacks",
-  "Security",
+  "House Keeping",
+  "Bartenders",
+  "Receptionists",
 ];
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -103,13 +103,13 @@ export default function GetStaff() {
           <Grid sx={{ padding: 6 }}>
             <Grid
               sx={{
-                fontSize: "80px",
+                fontSize: "70px",
                 color: "white",
                 marginTop: 10,
                 fontFamily: " 'Anton', sans-serif",
               }}
             >
-              Be a Part of Our Amazing Team
+              Join Salus's exclusive family of clients
             </Grid>
             <Grid
               style={{
@@ -121,14 +121,14 @@ export default function GetStaff() {
             >
               <p
                 style={{
-                  fontSize: "30px",
+                  fontSize: "25px",
                   // textAlign: "center",
                   color: "white",
                   fontFamily: " 'Anton', sans-serif",
                 }}
               >
-                Work with our diverse range of clients and make way for your
-                career
+                Who build passionate and committed teams by investing in
+                people's careers, skills and long-term goals
               </p>
             </Grid>
           </Grid>
@@ -155,7 +155,7 @@ export default function GetStaff() {
               <LockOutlinedIcon />
             </Avatar> */}
             <Typography component="h1" variant="h5">
-              Let us how we can assist you
+              Let us know how we can assist you
             </Typography>
             {/* <Typography fontSize={11}>
               we will get back to you at the earliest
@@ -249,7 +249,8 @@ export default function GetStaff() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, bgcolor: "#490841" }}
+                style={{ backgroundColor: "#490841" }}
+                sx={{ mt: 3, mb: 2 }}
               >
                 Submit
               </Button>

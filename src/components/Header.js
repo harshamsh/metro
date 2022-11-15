@@ -98,18 +98,30 @@ function DrawerAppBar(props) {
           </Link>
 
           <Box
-            sx={{ display: { xs: "none", sm: "block" }, marginLeft: "auto" }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              marginLeft: "auto",
+            }}
           >
             {navItems.map((item) => (
               <Button
                 href={item.link}
                 key={item.name}
                 sx={{
+                  fontFamily: "Urbanist",
                   color: "#e1d6a9",
+
                   ":hover": { color: "#fff0b7" },
                 }}
               >
-                {item.name}
+                <Typography
+                  sx={{
+                    fontSize: 12,
+                    ":hover": { color: "#fff0b7", fontSize: 15 },
+                  }}
+                >
+                  {item.name}
+                </Typography>
               </Button>
             ))}
           </Box>

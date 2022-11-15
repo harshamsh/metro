@@ -12,18 +12,18 @@ function About() {
       >
         <Grid>
           <Typography sx={{ color: { xs: "red", md: "blue" } }}>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text. All the Lorem Ipsum generators on the Internet tend
-            to repeat predefined chunks as necessary, making this the first true
-            generator on the Internet. It uses a dictionary of over 200 Latin
-            words, combined with a handful of model sentence structures, to
-            generate Lorem Ipsum which looks reasonable. The generated Lorem
-            Ipsum is therefore always free from repetition, injected humour, or
-            non-characteristic words etc.
+            We both work hard and have a love for what we do. We strive to
+            instil the same enthusiasm in our candidates since our working
+            relationship is mutually beneficial. Whether a candidate has worked
+            with us for years or is just beginning to take hesitant steps toward
+            their first shift, we will be there to help them every step of the
+            way. <br />
+            We take great pride in cooperating with each and every one of our
+            clients and applicants. We are proud of each and every one of our
+            applicants since they are an extension of us and a representative of
+            us in the business. We take pride in helping our clients with their
+            operations, which can occasionally be difficult. We will always do
+            our hardest to help and support both applicants and clients.
           </Typography>
         </Grid>
         {/* <Grid style={{ width: "50%", height: "100vh" }}>

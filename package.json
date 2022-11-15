@@ -1,5 +1,6 @@
 {
-  "name": "metro",
+  "name": "salus",
+  "homepage": "httos://salushospitality.co.uk/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
